@@ -1,0 +1,42 @@
+<center>
+<%= image_tag 'pizza.jpg',size:"300x300" %>
+
+<h1>Listing pizzas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th>Ingredients</th>
+      <th>Delicious</th>
+
+      <th>Toppings</th>
+      <th colspan="15"></th>
+
+
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pizzas.each do |pizza| %>
+      <tr>
+        <td><%= pizza.name %></td>
+        <td><%= pizza.ingredients %></td>
+        <td><%= pizza.delicious %></td>
+        <td><%= pizza.toppings %></td>
+
+        <td><%= link_to 'Show', pizza %></td>
+        <td><%= link_to 'Edit', edit_pizza_path(pizza) %></td>
+        <td><%= link_to 'Destroy', pizza, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pizza', new_pizza_path %>
+
+</center>
